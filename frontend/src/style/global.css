@@ -1,1 +1,35 @@
+:root {
+  /* Design Tokens from Screenshots */
+  --grad-auth-login: linear-gradient(135deg, #ff3399 0%, #ff6600 100%);
+  --grad-auth-signup: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  --grad-button: linear-gradient(90deg, #9d50bb 0%, #6e48aa 100%);
+  --sidebar-active: #00aeef;
+  --bg-dark: #0f0c29; /* Dark mode background */
+  --card-dark: #1e1b4b;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
+/* Base Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { transition: var(--transition); }
+
+[data-theme='dark'] {
+  --bg-color: #0b0a1a;
+  --panel-bg: #15142b;
+  --text-main: #ffffff;
+  --text-muted: #94a3b8;
+  --border: #2d2b52;
+}
+
+[data-theme='light'] {
+  --bg-color: #f8fafc;
+  --panel-bg: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+}
+
+/* Gradient Background for Auth Pages */
+.auth-page-login { background: var(--grad-auth-login); min-height: 100vh; }
+.auth-page-signup { background: #00b09b; background: linear-gradient(to right, #96c93d, #00b09b); min-height: 100vh; }
