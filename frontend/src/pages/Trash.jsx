@@ -6,7 +6,7 @@ import { NoteContext } from '../context/NoteContext';
 
 const Trash = () => {
   const { notes } = useContext(NoteContext);
-  const trashedNotes = notes.filter(n => n.trashed);
+  const trashedNotes = notes.filter(n => n.isTrashed);
 
   return (
     <div style={{ display: 'flex', height: '100vh', background: 'var(--bg-color)' }}>

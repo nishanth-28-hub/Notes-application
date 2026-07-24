@@ -1,31 +1,46 @@
 import React from 'react';
 import { FiMessageSquare, FiShare2, FiStar } from 'react-icons/fi';
 
-const EditorHeader = ({ title, isPinned, onToggleComments, onOpenShare, onTogglePin }) => {
+const EditorHeader = ({ title, isPinned, onTitleChange, onToggleComments, onOpenShare, onTogglePin }) => {
   return (
     <div style={{ marginBottom: '24px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
-        <span style={{ fontSize: '24px', color: 'var(--text-main)' }}>📄</span>
-        <h2 style={{ fontSize: '28px', color: 'var(--text-main)', margin: 0 }}>{title || "Untitled"}</h2>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
+        <span style={{ fontSize: '24px' }}>📄</span>
+        <input 
+          type="text"
+          value={title}
+          onChange={(e) => onTitleChange(e.target.value)}
+          placeholder="Untitled"
+          style={{
+            fontSize: '28px',
+            color: 'var(--text-main)',
+            background: 'transparent',
+            border: 'none',
+            outline: 'none',
+            fontWeight: '700',
+            width: '100%',
+            fontFamily: 'Outfit, sans-serif'
+          }}
+        />
       </div>
-      <p style={{ color: '#9d50bb', fontSize: '18px', marginBottom: '16px' }}>#</p>
       
-      <div style={{ display: 'flex', gap: '12px' }}>
-        <button onClick={onToggleComments} style={btnStyle}>
-          <FiMessageSquare /> Comments
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <button className="glass-button" onClick={onToggleComments} style={btnStyle}>
+          <FiMessageSquare size={14} /> Comments
         </button>
-        <button onClick={onOpenShare} style={btnStyle}>
-          <FiShare2 /> Share
+        <button className="glass-button" onClick={onOpenShare} style={btnStyle}>
+          <FiShare2 size={14} /> Share
         </button>
         <button 
+          className="glass-button"
           onClick={onTogglePin} 
           style={{ 
             ...btnStyle, 
-            backgroundColor: isPinned ? '#ff3399' : '#2d2b52',
-            borderColor: isPinned ? '#ff3399' : 'transparent' 
+            background: isPinned ? 'var(--accent)' : '',
+            color: isPinned ? '#fff' : ''
           }}
         >
-          <FiStar fill={isPinned ? "white" : "none"} /> Pinned
+          <FiStar size={14} fill={isPinned ? "white" : "none"} /> {isPinned ? 'Pinned' : 'Pin'}
         </button>
       </div>
     </div>
@@ -35,14 +50,12 @@ const EditorHeader = ({ title, isPinned, onToggleComments, onOpenShare, onToggle
 const btnStyle = {
   display: 'flex',
   alignItems: 'center',
-  gap: '8px',
-  padding: '8px 16px',
+  gap: '6px',
+  padding: '8px 14px',
   borderRadius: '20px',
-  border: '1px solid #2d2b52',
-  background: '#2d2b52',
-  color: '#ffffff',
+  color: 'var(--text-main)',
   cursor: 'pointer',
-  fontSize: '14px',
+  fontSize: '13px',
   fontWeight: '500'
 };
 

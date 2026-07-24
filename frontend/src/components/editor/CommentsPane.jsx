@@ -2,7 +2,7 @@ import React from 'react';
 import CommentItem from './CommentItem';
 import { FiSend } from 'react-icons/fi';
 
-const CommentsPane = ({ comments = [] }) => {
+const CommentsPane = ({ comments = [], onClose }) => {
   return (
     <div style={{
       width: '320px',
